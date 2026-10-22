@@ -1,22 +1,27 @@
 ---
 name: ai-sdlc-4-validate
-description: Verify the whole repository is release-ready, covering checks, the UC acceptance criteria and CI. Use after development, before deploying.
+description: Verify the change is release-ready against all quality gates, the UC acceptance criteria and the security/privacy checklist. Use after development, before deploying.
 ---
 
 # Phase 4 — Validate
 
 ## Goal
-Evidence that the UC works and nothing else broke.
+Evidence that the UC works, is secure, and that nothing else broke.
 
 ## Steps
-1. **Run** every command in `docs/PROJECT.md`: lint, typecheck, test, E2E, build.
-2. **Trace**: tick each AC in the UC and name the test that proves it.
-3. **Review** the diff for security issues (input validation, secrets, auth), accessibility and obvious performance problems.
-4. **CI**: make sure `.github/workflows/ci.yml` runs lint, typecheck, test, E2E and build on every pull request. Create it only if it is missing.
+1. **Gates**: run every command in `docs/PROJECT.md` locally (lint, typecheck, test, E2E with axe, build, Lighthouse, audit). Every threshold must be met, or the page must be listed under Exceptions.
+2. **Trace**: tick each AC and each item in the UC's Checklist section, and name the test or manual check that proves it.
+3. **Review** the diff for:
+   - injection, unvalidated input, permission checks and leaked secrets
+   - personal data going to new processors not listed in `PROJECT.md`
+   - CSP or header regressions
+   - accessibility, plus missing translations or metadata
+4. **PR**: open or update the pull request for the UC branch, with a summary and the AC checklist. CI must be green.
 
 ## Rules
-- Report results as they are; never weaken or skip a test to get green.
+- Report results as they are; never weaken a test, threshold or check to get green.
+- An exception needs a written reason in `PROJECT.md` and the user's approval.
 - On failure: if it is a spec gap, go back to Phase 1; if it is a bug, go back to Phase 3.
 
 ## Exit
-Every check passes and every AC is ticked. UC `Status: done`. Set `PHASE: 5`.
+CI is green on the PR, and every AC and checklist item is ticked. UC `Status: done`. Set `PHASE: 5`.
