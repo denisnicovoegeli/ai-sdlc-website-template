@@ -1,41 +1,31 @@
 # PROJECT.md
 
 ## Purpose
+_One or two sentences: what the system does and for whom._
 
-(Short description of the project.)
-
----
+## Stack
+- Language / framework: _tbd_
+- Package manager: _tbd_
+- Hosting: Vercel
 
 ## Architecture
-
-(project specific)
-
----
+_Style (e.g. feature folders, hexagonal) and the dependency rule between layers._
 
 ## Structure
-
-(project specific)
-
----
+_Top-level directories and what belongs in each._
 
 ## Commands
+| Task      | Command |
+|-----------|---------|
+| Install   | _tbd_   |
+| Dev       | _tbd_   |
+| Lint      | _tbd_   |
+| Typecheck | _tbd_   |
+| Test      | _tbd_   |
+| E2E       | _tbd_   |
+| Build     | _tbd_   |
 
-Install
-
-(project specific)
-
-Test
-
-pytest -q
-
-Start
-
-(project specific)
-
----
-
-## Dependencies
-
-Declared in:
-
-(project specific)
+## Deployment
+- Preview: every pull request (Vercel Git integration)
+- Production: merge to `main`
+- Env vars: managed in Vercel; listed (names only) in `.env.example`

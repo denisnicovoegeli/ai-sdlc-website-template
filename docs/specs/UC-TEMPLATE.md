@@ -1,37 +1,29 @@
-# UC-[NNN]-[NAME]
+# UC-NNN-NAME
+
+Status: draft | specified | designed | done
 
 ## Intent
-Business value of the use case.
-
-## Actors
-
-Primary  
-Secondary
+As a _actor_, I want _goal_, so that _value_.
 
 ## Preconditions
-
-Required system state.
+- _required state_
 
 ## Flow
+1. _main success path_
 
-1.
-2.
-3.
+## Edge Cases & Errors
+- _invalid input, empty state, failure, unauthorized_
 
-## Errors
+## Acceptance Criteria
+- [ ] **AC1** — Given _context_, when _action_, then _outcome_.
 
-- invalid input
-- not found
-- permission denied
+## Non-Functional
+_Only if relevant: performance, accessibility, SEO, security._
 
-## Acceptance
+## Design
+_Filled in Phase 2: components per layer and the files to touch._
 
-Given  
-When  
-Then  
-
-## Tests
-
-Unit  
-Integration  
-E2E
+## Test Plan
+| AC  | Level (unit / integration / e2e) | Test |
+|-----|----------------------------------|------|
+| AC1 |                                  |      |
