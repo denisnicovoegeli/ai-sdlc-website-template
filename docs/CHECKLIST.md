@@ -7,8 +7,9 @@ In Phase 2, copy the items that apply into the UC. In Phase 4, tick them.
 **Security**
 - [ ] Headers: `Content-Security-Policy` (no `unsafe-inline` scripts; nonces or hashes), `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`, and `frame-ancestors 'none'` in the CSP
 - [ ] All input is validated on the server against a schema; the client-side checks are only for UX
-- [ ] Forms are protected by rate limiting and a honeypot (a captcha only if spam persists)
+- [ ] Forms are protected by a honeypot and rate limiting; on serverless this needs a shared store or the platform firewall, since in-memory counters don't work. A captcha only if spam persists.
 - [ ] Emails and messages built from user input are escaped; no header injection
+- [ ] The email sending domain has SPF, DKIM and DMARC records
 - [ ] No secrets or private API keys in the client bundle
 - [ ] Dependencies come from lock files; Dependabot is on for packages and GitHub Actions
 
@@ -18,6 +19,10 @@ In Phase 2, copy the items that apply into the UC. In Phase 4, tick them.
 - [ ] Forms collect only the data they need and state the purpose next to the form
 - [ ] Third-party embeds (maps, video, social) load only on click (facade)
 - [ ] Analytics are cookieless; anything that sets non-essential cookies waits for consent
+
+**Accessibility (WCAG 2.2 AA)**
+- [ ] axe passes; the manual keyboard, focus, screen-reader and 200 % zoom check is done
+- [ ] Every form field has a label, and errors are announced and linked to their field
 
 **SEO & quality**
 - [ ] A unique `<title>` and meta description per page and language

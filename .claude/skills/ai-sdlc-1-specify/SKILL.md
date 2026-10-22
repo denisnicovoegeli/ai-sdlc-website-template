@@ -25,4 +25,4 @@ One UC file in `docs/specs/` whose acceptance criteria can be tested directly.
 - No code or tests in this phase.
 
 ## Exit
-UC `Status: specified`. Create a branch `uc-NNN-name`. In `docs/TASKS.md`, set `Current Use Case` and `PHASE: 2`.
+On a new branch `uc-NNN-name` from an up-to-date `main`, the UC is committed with `Status: specified`.

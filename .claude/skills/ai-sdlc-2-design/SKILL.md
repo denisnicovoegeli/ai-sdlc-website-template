@@ -28,4 +28,4 @@ The smallest secure design that satisfies every AC, recorded in the UC itself.
 - If there is a real trade-off, present the options to the user and recommend one.
 
 ## Exit
-UC `Status: designed`, with every AC and checklist item mapped to a test or a manual check. Set `PHASE: 3`.
+The UC is committed with `Status: designed`, and every AC and checklist item is mapped to a test or a manual check.

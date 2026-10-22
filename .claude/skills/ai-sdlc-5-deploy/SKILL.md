@@ -12,25 +12,28 @@ The validated change is live, verified and monitored.
 ## Steps
 1. **Check setup**:
    - `main` is protected, with the CI checks required (`gh api repos/{owner}/{repo}/branches/main/protection`)
-   - the platform project is linked
-   - the env vars in `.env.example` are set for preview and production
+   - the env vars from `.env.example` are set for production
    - if anything is missing, ask the user
-2. **Preview**: smoke-test the PR's preview deployment:
-   - the UC's ACs
-   - the response headers
-   - forms end to end (the email arrives, spam is blocked)
-3. **Production**: merge the PR only after the user confirms. The platform then deploys `main`.
+2. **First release only**:
+   - custom domain added, with a `www` ↔ apex redirect and HTTPS working
+   - email sending domain has SPF, DKIM and DMARC records
+   - site verified in Google Search Console and `sitemap.xml` submitted
+   - uptime monitor and error tracking set up (each provider added to the `PROJECT.md` privacy table)
+3. **Merge** the PR after the user confirms (squash). The platform deploys `main` to production.
 4. **Verify** production:
    - key pages load in every language
    - no console or server errors
    - headers are present
+   - forms work end to end
    - `sitemap.xml` and `robots.txt` are correct
-5. **Monitor**: an uptime check and error tracking are active. A new monitoring provider is a processor, so add it to `PROJECT.md`.
-6. **Rollback**: if verification fails, roll back to the previous deployment (instant rollback on the platform) and go back to Phase 1.
+5. **Rollback**, if verification fails:
+   1. Use the platform's instant rollback to the previous deployment. On Vercel this pauses automatic production deploys.
+   2. Open a revert PR, and merge it once CI is green.
+   3. Undo the rollback (re-enable automatic deploys), then reopen the UC at Phase 1 or 3.
 
 ## Rules
 - Never commit secrets; set them on the platform.
-- Never merge to `main` or deploy to production without explicit confirmation.
+- Never merge or deploy to production without explicit confirmation.
 
 ## Exit
-Production is verified and monitored. Move the UC to done in the backlog and set `PHASE: 1` for the next UC.
+Production is verified and monitored. Ask the user to move the UC to Done in `docs/TASKS.md`.

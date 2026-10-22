@@ -1,10 +1,9 @@
 # TASKS.md
 
-PHASE: 0
-<!-- 0 Bootstrap | 1 Specify | 2 Design | 3 Develop | 4 Validate | 5 Deploy -->
-
-## Current Use Case
-_none_
+Backlog in priority order. Owned by the user; agents read it only.
+Each UC's progress lives in its own `Status` field.
 
 ## Backlog
 - [ ] _UC-001-NAME: short description_
+
+## Done

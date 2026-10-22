@@ -13,7 +13,8 @@ _1 | 2 | 3_ — see `docs/CHECKLIST.md`
 - Language / framework: _tbd_
 - Package manager: _tbd_
 - CMS / booking / payments: _tbd or none_
-- Hosting: Vercel
+- Email: _tbd_
+- Hosting: Vercel (function region `fra1`)
 
 ## Languages
 - Site content: _e.g. de-CH (default), fr-CH_
@@ -43,8 +44,8 @@ _Top-level directories and what belongs in each._
 |------------------|-----------|
 | Lint, typecheck  | no errors |
 | Unit + E2E tests | all pass |
-| Accessibility    | axe in E2E: 0 serious or critical violations |
-| Security headers | E2E test asserts the headers from `CHECKLIST.md` |
+| Accessibility    | WCAG 2.2 AA; axe in E2E: 0 serious or critical violations |
+| Security headers | E2E test asserts the headers from `CHECKLIST.md` (set in the framework config) |
 | Dependencies     | audit: no high or critical; Dependabot enabled |
 | Lighthouse       | Performance ≥ 90 · Accessibility ≥ 95 · Best Practices ≥ 95 · SEO ≥ 95 |
 | Core Web Vitals  | LCP ≤ 2.5 s · CLS ≤ 0.1 · TBT ≤ 200 ms |
@@ -63,6 +64,7 @@ Lighthouse runs in CI against a local production build: mobile profile, median o
 
 ## Deployment
 - Preview: every pull request (Vercel Git integration)
-- Production: merge to protected `main` after CI passes
+- Production: squash-merge to protected `main` after CI passes (0 approvals required, admins included)
+- Dependencies: Dependabot weekly; patch and minor updates auto-merge when CI is green
 - Env vars: managed in Vercel; listed (names only) in `.env.example`
 - Monitoring: _uptime monitor, error tracking_

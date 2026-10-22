@@ -1,7 +1,7 @@
 # UC-NNN-NAME
 
 Type: feature | page
-Status: draft | specified | designed | done
+Status: draft | specified | designed | in-progress | done
 
 ## Intent
 As a _actor_, I want _goal_, so that _value_.
